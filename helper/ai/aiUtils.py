@@ -1,6 +1,9 @@
 from openai import AsyncOpenAI
 from pathlib import Path
-from ..storedValues import get_secret
+from os import getenv 
+from dotenv import load_dotenv 
+
+load_dotenv()
 
 # Intialize OpenAI at module level for reuse
 _client = None
@@ -16,7 +19,7 @@ def loadPrompt(fileName: str) -> str:
 def initializeClient():
     global _client
     if _client is None:  
-        api_key = get_secret("open_ai_key")
+        api_key = getenv("OPENAI_API_KEY")
         _client = AsyncOpenAI(api_key=api_key)
     return _client
 

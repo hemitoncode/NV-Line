@@ -1,13 +1,16 @@
 import psycopg2
 import smtplib
+from os import getenv 
+from dotenv import load_dotenv
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from ..storedValues import get_secret
 from ...globalStates import categories
 
-gmail_email = get_secret("gmail_email")
-gmail_app_password = get_secret("gmail_app_password")
-postgres_connection_string = get_secret("postgres_connection_string")
+load_dotenv()
+
+gmail_email = getenv("GMAIL_SECRET")
+gmail_app_password = getenv("GMAIL_APP_PASSWORD")
+postgres_connection_string = getenv("POSTGRES_CONNECTION_STRING")
 
 def buildEmailHtml(preferred_categories):
     preferred_categories = preferred_categories or []
