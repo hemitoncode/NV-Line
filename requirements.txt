@@ -3,3 +3,4 @@ psycopg2-binary
 requests
 bs4
 python-docx
+twillio
