@@ -9,4 +9,10 @@ fileLocaters = []
 categories = {
     "Immigration": [],
     "Economy": [],
-    "Civil Rights"
+    "Civil Rights": []
+}
+categories_link = {
+    "Immigration": None,
+    "Economy": None,
+    "Civil Rights": None
+}
