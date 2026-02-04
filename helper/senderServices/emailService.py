@@ -13,9 +13,6 @@ gmail_app_password = getenv("GMAIL_APP_PASSWORD")
 postgres_connection_string = getenv("POSTGRES_CONNECTION_STRING")
 
 def buildEmailHtml(preferred_categories):
-    preferred_categories = preferred_categories or []
-    preferred_set = set(preferred_categories)
-
     html = """
     <html>
     <body>
@@ -23,7 +20,7 @@ def buildEmailHtml(preferred_categories):
     """
 
     for category, bills in categories.items():
-        if preferred_set and category not in preferred_set:
+        if category not in preferred_categories:
             continue
 
         html += f"<h2>{category}</h2>"
@@ -45,8 +42,7 @@ def buildEmailHtml(preferred_categories):
     html += "</body></html>"
     return html
 
-def sendEmails():
-    # Fetch subscribers
+def fetchEmailSubscribers(): 
     with psycopg2.connect(postgres_connection_string) as conn:
         with conn.cursor() as cursor:
             cursor.execute("""
@@ -57,8 +53,14 @@ def sendEmails():
                 WHERE type_contact = 'email';
             """)
             subscribers = cursor.fetchall()
+    
+    return subscribers
 
-    # Open SMTP connection ONCE
+def sendEmails():
+    
+    subscribers = fetchEmailSubscribers()
+
+    # Open SMTP connection ONCE through with syntax
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
         server.login(gmail_email, gmail_app_password)
 
@@ -66,7 +68,7 @@ def sendEmails():
             html_body = buildEmailHtml(preferred_categories)
 
             msg = MIMEMultipart("alternative")
-            msg["Subject"] = "TESTING"
+            msg["Subject"] = "NYC Legislation Update - Civic Line"
             msg["From"] = gmail_email
             msg["To"] = email
             msg.attach(MIMEText(html_body, "html"))

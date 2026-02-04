@@ -9,5 +9,4 @@ fileLocaters = []
 categories = {
     "Immigration": [],
     "Economy": [],
-    "Civil": []
-}
+    "Civil Rights"
