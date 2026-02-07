@@ -4,7 +4,7 @@ from os import getenv
 from supabase import create_client
 from uuid import uuid4
 from datetime import date
-from ...globalStates import categories_link
+from globalStates import categories_link
 
 load_dotenv()
 url = getenv("SUPABASE_URL")

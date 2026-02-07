@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from ..globalStates import meetings, legislationDetailsHTML, meetingDetailsHTML, bills, fileLocaters
+from globalStates import meetings, legislationDetailsHTML, meetingDetailsHTML, bills, fileLocaters
 
 def scrapeCouncilMeetings(html):
     soup = BeautifulSoup(html, "html.parser")

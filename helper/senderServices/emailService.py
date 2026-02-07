@@ -4,7 +4,7 @@ from os import getenv
 from dotenv import load_dotenv
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from ...globalStates import categories_link
+from globalStates import categories_link
 
 load_dotenv()
 

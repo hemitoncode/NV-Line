@@ -1,5 +1,5 @@
-from ..globalStates import meetings, fileLocaters, bills
-from .ai.aiUtils import runAIOnBill
+from globalStates import meetings, fileLocaters, bills
+from ai.aiUtils import runAIOnBill
 
 def getMeetingDetailsTasks(session):
     tasks = []
