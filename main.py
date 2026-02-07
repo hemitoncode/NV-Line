@@ -3,6 +3,7 @@ import asyncio
 
 from .helper.scraper import scrapeCouncilMeetings, scrapeMeetingDetails, scrapeLegislationDetail
 from .helper.senderServices.emailService import sendEmails
+from .helper.senderServices.htmlReportPackage import buildHTMLReport
 from .helper.webRequester import fetchCouncilMeetings, fetchMeetingDetails, fetchLegislationDetails
 from .helper.ai.aiProcessor import processBillsWithAI
 
@@ -29,6 +30,9 @@ async def cli():
     
     print("Processing bills with AI...")
     await processBillsWithAI() 
+
+    print("Compile HTML report...")
+    buildHTMLReport()
     
     print("Sending emails...")
     sendEmails()
