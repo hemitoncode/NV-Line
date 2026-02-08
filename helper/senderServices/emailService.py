@@ -201,7 +201,7 @@ def fetchEmailSubscribers():
             cursor.execute("""
                 SELECT
                     contact,
-                    ARRAY(SELECT jsonb_array_elements_text(topics)) AS topics
+                    topics
                 FROM subscriptions
                 WHERE type_contact = 'email';
             """)
