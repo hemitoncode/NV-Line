@@ -21,7 +21,6 @@ def buildHTMLReport():
                 <h1>{category} - {today}</h1>
             """
         for bill in bills:
-            fileId = str(uuid4())
             sponsors = ", ".join(bill.get("sponsors", []) or [])
             html += f"""
             <div>
@@ -32,6 +31,8 @@ def buildHTMLReport():
             <hr>
             """
         html += "</body></html>"
+
+        fileId = str(uuid4())
         
         with open(fileId, 'w', encoding='utf-8') as file: 
             file.write(html)
