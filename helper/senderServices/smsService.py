@@ -1,7 +1,7 @@
 from twilio.rest import Client 
 from dotenv import load_dotenv
 from os import getenv 
-from globalStates import categories_link
+from ...globalStates import categories_link
 import psycopg2
 
 load_dotenv()

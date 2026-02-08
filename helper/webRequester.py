@@ -1,6 +1,6 @@
 from aiohttp import ClientSession 
-from tasksManager import getMeetingDetailsTasks, getLegislationDetailsTask
-from globalStates import meetingDetailsHTML, legislationDetailsHTML
+from .tasksManager import getMeetingDetailsTasks, getLegislationDetailsTask
+from ..globalStates import meetingDetailsHTML, legislationDetailsHTML
 import asyncio 
 
 async def fetchCouncilMeetings():
