@@ -33,14 +33,14 @@ def buildHTMLReport():
         html += "</body></html>"
 
         fileId = str(uuid4())
-        
+
         with open(fileId, 'w', encoding='utf-8') as file: 
             file.write(html)
         
         with open(fileId, 'rb') as file:
             response = (
                 supabase.storage
-                .from_("")
+                .from_("next-voters-summaries")
                 .upload(
                     file=file,
                     path=f"public/{today}/{category}.html",
