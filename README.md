@@ -1,9 +1,9 @@
 <div align="center">
-  <h1>Civic Line</h1>
+  <h1>Next Voters Line</h1>
   <p><strong>Dead simple bulk email sending for civic engagement and voter outreach.</strong></p>
 </div>
 
-## Why Civic Line?
+## Why NV Line?
 
 Most email tools are either:
 - Too complex (requiring extensive configuration)
