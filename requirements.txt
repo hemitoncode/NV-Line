@@ -5,4 +5,4 @@ bs4
 python-docx
 twilio
 python-dotenv
-supabase
+s
