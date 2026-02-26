@@ -1,11 +1,11 @@
 import time
 import asyncio
 
-from .new_york_helpers.newyorkScraper import scrapeCouncilMeetings, scrapeMeetingDetails, scrapeLegislationDetail
-from ..helper.senderServices.emailService import sendEmails
-from ..helper.senderServices.htmlReportPackage import buildHTMLReport
-from .new_york_helpers.webRequester import fetchCouncilMeetings, fetchMeetingDetails, fetchLegislationDetails
-from ..helper.ai.aiProcessor import processBillsWithAI
+from .helper.newyorkScraper import scrapeCouncilMeetings, scrapeMeetingDetails, scrapeLegislationDetail
+from helper.senderServices.emailService import sendEmails
+from helper.senderServices.htmlReportPackage import buildHTMLReport
+from helper.webRequester import fetchCouncilMeetings, fetchMeetingDetails, fetchLegislationDetails
+from helper.ai.aiProcessor import processBillsWithAI
 
 
 async def cli():
